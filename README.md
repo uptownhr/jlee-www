@@ -1,0 +1,2 @@
+# Get Paid
+Like most engineers, I may have a blog or a personal project page but nothing that offers interested parties a way to buy my services. This project is dedicated to being a fast way to bring up a services site, to show offerings and allow clients to pay you.
