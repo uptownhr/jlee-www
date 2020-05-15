@@ -76,6 +76,7 @@ export default {
   },
 
   env: {
-    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY
+    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
+    URL: process.env.URL
   }
 };

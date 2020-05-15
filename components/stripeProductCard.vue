@@ -53,8 +53,8 @@ export default {
             },
           ],
 
-          successUrl: 'http://localhost:3000',
-          cancelUrl: 'http://localhost:3000',
+          successUrl: process.env.URL,
+          cancelUrl: process.env.URL,
         })
         .then((result) => {
           console.log('result', result);
