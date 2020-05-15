@@ -4,6 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "nuxt": "^2.12.2"
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@stripe/stripe-js": "^1.5.0",
+    "dotenv": "^8.2.0",
+    "nuxt": "^2.12.2",
+    "stripe": "^8.52.0",
+    "vue-currency-filter": "^5.1.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "pregenerate": "node scripts/stripePullPlans.js && node scripts/stripePullProducts.js",
+    "generate": "nuxt generate"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "data/*"
+    ]
   }
 }
