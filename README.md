@@ -2,7 +2,7 @@
 Like most engineers, I may have a blog or a personal project page but nothing that offers interested parties a way to buy my services. This project is dedicated to being a fast way to bring up a services site, to show offerings and allow clients to pay you.
 
 ## Demo
-(https://paid.netlify.app/)[https://paid.netlify.app/]
+[https://paid.netlify.app/](https://paid.netlify.app/)
 
 ## Stripe Connection
 This project connects with your Stripe account and uses the API to pull Products and Plans from your Stripe account. You can use Stripe as your Product management interface.
