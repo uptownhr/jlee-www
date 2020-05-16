@@ -77,6 +77,11 @@ export default {
 
   env: {
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
-    URL: process.env.URL
-  }
+    URL: process.env.URL,
+    MAGIC_KEY: process.env.MAGIC_KEY
+  },
+
+  plugins: [
+    {src: '~/plugins/magic.js', mode: 'client'}
+  ]
 };
