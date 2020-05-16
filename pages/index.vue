@@ -3,8 +3,8 @@
     <header>
       <h1>Get paid for your services</h1>
       <form v-if=!loggedIn @submit.prevent="login(email)">
-        <input v-model="email" />
-        <button>Login</button>
+        <input v-model="email" placeholder="email" />
+        <button>Sign-up / Login</button>
       </form>
       <h2 v-else>{{loggedIn ? 'LoggedIn' : 'notLoggedIn' }} <button @click="logout">Log out</button></h2>
       <!-- <button>Schedule a Consultation call</button> -->
