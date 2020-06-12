@@ -1,15 +1,26 @@
 <template>
   <div>
     <header>
-      <h1>Get paid for your services</h1>
-      <form v-if=!loggedIn @submit.prevent="login(email)">
+      <h1>Hi, I'm <u>James Lee</u>! Your personal VueJS mentor</h1>
+      <p>
+        I'm taking on 2 qualified mentees to expedite the process of learning
+        VueJS
+      </p>
+      <client-only>
+        <p>
+          <a v-if="loaded && !loggedIn" href="" @click.prevent="showLogin = true"
+            ><i>Apply for Mentorship</i>
+          </a>
+        </p>
+      </client-only>
+    </header>
+    <section>
+      <form v-if="showLogin && !loggedIn" @submit.prevent="login(email)">
         <input v-model="email" placeholder="email" />
         <button>Sign-up / Login</button>
       </form>
-      <h2 v-else>{{loggedIn ? 'LoggedIn' : 'notLoggedIn' }} <button @click="logout">Log out</button></h2>
-      <!-- <button>Schedule a Consultation call</button> -->
-    </header>
-    <section>
+    </section>
+    <section v-if="loggedIn">
       <stripe-product-card
         v-for="product in products"
         :key="product.id"
@@ -28,27 +39,30 @@ export default {
 
   data() {
     return {
+      loaded: false,
+      showLogin: false,
       products,
       loggedIn: false,
-      email: ''
+      email: '',
     };
   },
 
-  async mounted () {
-    this.loggedIn = await this.$magic.user.isLoggedIn()
+  async mounted() {
+    this.loggedIn = await this.$magic.user.isLoggedIn();
+    this.loaded = true
   },
 
   methods: {
-    async login (email) {
+    async login(email) {
       await this.$magic.auth.loginWithMagicLink({ email });
-      this.loggedIn = this.$magic.user.isLoggedIn()
+      this.loggedIn = this.$magic.user.isLoggedIn();
     },
 
-    async logout () {
-      await this.$magic.user.logout()
-      this.loggedIn = await this.$magic.user.isLoggedIn()
-      console.log(this.loggedIn)
-    }
-  }
+    async logout() {
+      await this.$magic.user.logout();
+      this.loggedIn = await this.$magic.user.isLoggedIn();
+      console.log(this.loggedIn);
+    },
+  },
 };
 </script>
