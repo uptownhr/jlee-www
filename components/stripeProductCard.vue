@@ -38,7 +38,7 @@ export default {
 
   methods: {
     getProductPlans(productId) {
-      return this.plans.filter((p) => p.product === productId);
+      return this.plans.filter((p) => p.product === productId && p.active);
     },
 
     async checkoutRedirect(planId) {

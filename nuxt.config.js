@@ -10,7 +10,7 @@ export default {
       lang: 'en'
     },
 
-    title: 'Get paid',
+    title: 'James Lee - Mentorship',
 
     meta: [
       { charset: 'utf-8' },
@@ -20,12 +20,12 @@ export default {
           'width=device-width, initial-scale=1, maximum-scale=5, minimal-ui'
       },
 
-      { property: 'og:url', content: 'https://www.get.paid' },
+      { property: 'og:url', content: 'https://www.jlee.biz' },
       { property: 'og:type', content: 'website' },
 
       {
         property: 'og:title',
-        content: 'Get Paid'
+        content: 'James Lee - Mentorship'
       },
 
       {
@@ -33,14 +33,14 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Get paid for your services'
+          'Your Personal VueJS Mentor'
       },
 
       {
         vmid: 'og:description',
         property: 'og:description',
         content:
-          'Get paid for your services'
+          'Your Personal VueJS Mentor'
       },
 
       /* {

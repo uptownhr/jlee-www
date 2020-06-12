@@ -1,7 +1,14 @@
 <template>
   <div>
     <header>
-      <h1>Hi, I'm <u>James Lee</u>! Your personal VueJS mentor</h1>
+      <nav>
+        <nuxt-link to="/">James</nuxt-link>
+
+        <ul>
+          <li><a href="https://github.com/uptownhr" target="_blank">GitHub ↗</a></li>
+        </ul>
+      </nav>
+      <h1>Hi, I'm James Lee! Your Personal VueJS <u>Mentor</u></h1>
       <p>
         I'm taking on 2 qualified mentees to expedite the process of learning
         VueJS
@@ -41,7 +48,7 @@ export default {
     return {
       loaded: false,
       showLogin: false,
-      products,
+      products: products.filter(p => p.active),
       loggedIn: false,
       email: '',
     };
