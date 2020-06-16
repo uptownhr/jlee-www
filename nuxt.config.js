@@ -86,6 +86,7 @@ export default {
   plugins: [{ src: '~/plugins/magic.js', mode: 'client' }],
 
   axios: {
+    baseURL: '/'
     /* port: process.env.NETLIFY_DEV 
       ? 8888 
       : process.env.PORT */
