@@ -1,13 +1,7 @@
 <template>
   <div>
     <header>
-      <nav>
-        <nuxt-link to="/">James</nuxt-link>
-
-        <ul>
-          <li><a href="https://github.com/uptownhr" target="_blank">GitHub ↗</a></li>
-        </ul>
-      </nav>
+      <Nav />
       <h1>Hi, I'm James Lee! Your Personal VueJS <u>Mentor</u></h1>
       <p>
         I'm taking on 2 qualified mentees to expedite the process of learning
@@ -18,6 +12,7 @@
           <a v-if="loaded && !loggedIn" href="" @click.prevent="showLogin = true"
             ><i>Apply for Mentorship</i>
           </a>
+          <button v-else @click="logout">Logout</button>
         </p>
       </client-only>
     </header>
@@ -40,6 +35,7 @@
 <script>
 import stripeProductCard from '@/components/stripeProductCard';
 import products from '../data/products.json';
+import nav from '@/components/nav'
 
 export default {
   components: { stripeProductCard },
@@ -57,6 +53,7 @@ export default {
   async mounted() {
     this.loggedIn = await this.$magic.user.isLoggedIn();
     this.loaded = true
+    this.$axios.get('/.netlify/functions/test')
   },
 
   methods: {
