@@ -13,7 +13,13 @@ exports.handler = async function(event, context, callback) {
   const customers = await stripe.customers.list({
     email
   });
+  
   const [customer] = customers.data
+
+  if (!customer) return callback(null, {
+    statusCode: 200,
+    body: JSON.stringify([])
+  })
 
   const subscriptions = await stripe.subscriptions.list({
     customer: customer.id,
