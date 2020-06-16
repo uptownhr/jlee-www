@@ -7,16 +7,17 @@
     <p>
       {{ product.description }}
     </p>
-    <p v-for="plan in getProductPlans(product.id)" :key="plan.id">
-      <a 
-        @click="checkoutRedirect(plan.id)"
-        href="#"
-        ><i
-          >{{intervalConversion(plan.interval)}} {{ product.unit_label }}
-          {{ (plan.amount / 100) | currency }}&nearr;</i
-        ></a
-      >
-    </p>
+    <template v-if="product.subscribed"><p><b>Subscribed</b></p></template>
+    <template v-else>
+      <p v-for="plan in getProductPlans(product.id)" :key="plan.id">
+        <a @click="checkoutRedirect(plan.id)" href="#"
+          ><i
+            >{{ intervalConversion(plan.interval) }} {{ product.unit_label }}
+            {{ (plan.amount / 100) | currency }}&nearr;</i
+          ></a
+        >
+      </p>
+    </template>
   </aside>
 </template>
 
@@ -42,7 +43,7 @@ export default {
     },
 
     async checkoutRedirect(planId) {
-      console.log('wtf')
+      console.log('wtf');
       const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
       stripe
         .redirectToCheckout({
@@ -61,13 +62,16 @@ export default {
         });
     },
 
-    intervalConversion (interval) {
+    intervalConversion(interval) {
       switch (interval) {
-        case 'month': return 'Monthly'
-        case 'year': return 'Yearly'
-        default: return interval
+        case 'month':
+          return 'Monthly';
+        case 'year':
+          return 'Yearly';
+        default:
+          return interval;
       }
-    }
+    },
   },
 };
 </script>

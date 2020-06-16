@@ -9,7 +9,10 @@
       </p>
       <client-only>
         <p>
-          <a v-if="loaded && !loggedIn" href="" @click.prevent="showLogin = true"
+          <a
+            v-if="loaded && !loggedIn"
+            href=""
+            @click.prevent="showLogin = true"
             ><i>Apply for Mentorship</i>
           </a>
           <button v-else @click="logout">Logout</button>
@@ -35,7 +38,7 @@
 <script>
 import stripeProductCard from '@/components/stripeProductCard';
 import products from '../data/products.json';
-import nav from '@/components/nav'
+import nav from '@/components/nav';
 
 export default {
   components: { stripeProductCard },
@@ -44,16 +47,28 @@ export default {
     return {
       loaded: false,
       showLogin: false,
-      products: products.filter(p => p.active),
       loggedIn: false,
       email: '',
+      subscriptions: [],
     };
+  },
+
+  computed: {
+    products() {
+      return products
+        .filter((p) => p.active)
+        .map((p) => ({
+          ...p,
+          subscribed: this.checkSubscribed(p.id)
+        }));
+    },
   },
 
   async mounted() {
     this.loggedIn = await this.$magic.user.isLoggedIn();
-    this.loaded = true
-    this.$axios.get('/.netlify/functions/test')
+    this.subscriptions = this.loggedIn ? await this.getSubscriptions() : []
+    this.loaded = true;
+    
   },
 
   methods: {
@@ -65,7 +80,24 @@ export default {
     async logout() {
       await this.$magic.user.logout();
       this.loggedIn = await this.$magic.user.isLoggedIn();
-      console.log(this.loggedIn);
+    },
+
+    async getSubscriptions() {
+      const token = await this.$magic.user.getIdToken();
+
+      const res = await this.$axios.post(
+        '/.netlify/functions/stripe-customer',
+        {
+          token
+        }
+      );
+
+      return res.data.subscriptions;
+    },
+
+    checkSubscribed(productId) {
+      console.log('productId', productId, this.subscriptions)
+      return this.subscriptions.some((s) => s.plan.product.id === productId);
     },
   },
 };
