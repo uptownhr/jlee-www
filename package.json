@@ -7,15 +7,19 @@
     "@magic-sdk/admin": "^1.2.2",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/tailwindcss": "^2.0.0",
     "@stripe/stripe-js": "^1.5.0",
+    "@tailwindcss/ui": "^0.3.0",
     "dotenv": "^8.2.0",
     "magic-sdk": "^1.3.3",
+    "netlify-cli": "^2.54.0",
     "nuxt": "^2.12.2",
     "stripe": "^8.52.0",
     "vue-currency-filter": "^5.1.0"
   },
   "scripts": {
     "dev": "nuxt dev",
+    "dev:netlify": "netlify dev",
     "pregenerate": "node scripts/stripePullPlans.js && node scripts/stripePullProducts.js",
     "generate": "nuxt generate"
   },

@@ -3,8 +3,6 @@ require('dotenv').config();
 console.log(process.env);
 
 export default {
-  css: ['@/assets/css/mvp.css'],
-
   head: {
     htmlAttrs: {
       lang: 'en',
@@ -49,7 +47,9 @@ export default {
       /* { property: 'og:image:type', content: 'image/png' } */
     ],
   },
-
+  buildModules: [
+    '@nuxtjs/tailwindcss'
+  ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
