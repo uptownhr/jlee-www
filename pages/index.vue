@@ -58,22 +58,22 @@
                 <a
                   href="#"
                   class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                  >Product
+                  >My Stack
                 </a>
                 <a
                   href="#"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                  >Features
+                  >Services
                 </a>
                 <a
                   href="#"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                  >Marketplace
+                  >About Me
                 </a>
                 <a
                   href="#"
                   class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                  >Company
+                  >FAQ
                 </a>
                 <a
                   href="#"
