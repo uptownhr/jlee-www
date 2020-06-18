@@ -98,6 +98,11 @@ export default {
                       class="mt-4 flex items-center justify-center font-display"
                     >
                       <span
+                        class="-ml-8 text-right text-2xl leading-8 font-semibold text-gray-400 tracking-wide line-through sm:text-3xl sm:leading-9"
+                      >
+                        $599
+                      </span>
+                      <span
                         class="px-3 flex items-start text-6xl leading-none tracking-tight font-medium text-gray-900 sm:text-7xl"
                       >
                         <span
