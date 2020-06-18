@@ -47,9 +47,7 @@ export default {
       /* { property: 'og:image:type', content: 'image/png' } */
     ],
   },
-  buildModules: [
-    '@nuxtjs/tailwindcss'
-  ],
+  buildModules: ['@nuxtjs/tailwindcss'],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -83,12 +81,15 @@ export default {
     MAGIC_KEY: process.env.MAGIC_KEY,
   },
 
-  plugins: [{ src: '~/plugins/magic.js', mode: 'client' }],
+  plugins: [
+    { src: '@/plugins/magic.js', mode: 'client' },
+    { src: '@/plugins/auth.js', mode: 'client' },
+  ],
 
   axios: {
-    baseURL: '/'
+    baseURL: '/',
     /* port: process.env.NETLIFY_DEV 
       ? 8888 
       : process.env.PORT */
-  }
+  },
 };
