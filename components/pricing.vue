@@ -11,6 +11,10 @@ export default {
         return b.amount - a.amount;
       })[0]
     },
+
+    loggedIn () {
+      return this.$store.getters['user/loggedIn']
+    }
   },
 
   methods: {
@@ -194,7 +198,7 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div class="mt-10">
+                  <div v-if="loggedIn" class="mt-10">
                     <div class="rounded-lg shadow-md">
                       <a
                         @click="checkoutRedirect('plan_HGlS8lYEq3FxUU')"
@@ -337,7 +341,7 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div class="mt-8">
+                  <div v-if="loggedIn" class="mt-10">
                     <div class="rounded-lg shadow-md">
                       <a
                         data-gumroad-single-product="true"
@@ -480,7 +484,7 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div class="mt-8">
+                  <div v-if="loggedIn" class="mt-10">
                     <div class="rounded-lg shadow-md">
                       <a
                         href="https://gum.co/jYnNI"
