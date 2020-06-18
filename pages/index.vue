@@ -1,18 +1,39 @@
 <script>
 import hero from '@/components/homepage/hero';
-import pricing from '@/components/pricing';
+
 export default {
   components: {
     hero,
-    pricing
   },
+
+  data () {
+    return {
+      loginForm: {
+        email: ''
+      }
+    }
+  },
+
+  computed: {
+    loggedIn() {
+      return this.$store.getters['user/loggedIn'];
+    },
+  },
+
+  methods: {
+    async handleAuth({ email }) {
+      if (this.loggedIn) return this.$router.push('/member');
+      await this.$store.dispatch('user/auth', { email });
+      this.$router.push('/member')
+    },
+  }
 };
 </script>
 <template>
   <div>
     <hero />
 
-    <div class="py-24 bg-white">
+    <div id="my-stack" class="py-24 bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
           <p
@@ -189,28 +210,34 @@ export default {
           <br />
           <span class="text-indigo-600">Start your mentorship today. </span>
         </h2>
-        <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
-          <div class="inline-flex rounded-md shadow">
-            <a
-              href="#"
-              class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-            >
-              Get started
-            </a>
+        <no-ssr>
+          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            <form @submit.prevent="handleAuth(loginForm)" class="w-full max-w-sm">
+              <div
+                class="flex items-center border-b border-b-2 border-indigo-500 py-2"
+              >
+                <input
+                  v-if="!loggedIn"
+                  v-model="loginForm.email"
+                  class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  type="text"
+                  placeholder="Email"
+                  aria-label="Email"
+                />
+                <button
+                  class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
+                  type="submit"
+                >
+                  Get Started
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="ml-3 inline-flex rounded-md shadow">
-            <a
-              href="#"
-              class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-            >
-              Learn more
-            </a>
-          </div>
-        </div>
+        </no-ssr>
       </div>
     </div>
 
-    <div class="py-24 bg-white">
+    <div id="services" class="py-24 bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
           <p
@@ -377,6 +404,5 @@ export default {
         </div>
       </div>
     </div>
-    <pricing />
   </div>
 </template>

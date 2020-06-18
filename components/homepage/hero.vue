@@ -18,7 +18,8 @@ export default {
   methods: {
     async handleAuth({ email }) {
       if (this.loggedIn) return this.$router.push('/member');
-      this.$store.dispatch('user/auth', { email });
+      await this.$store.dispatch('user/auth', { email });
+      this.$router.push('/member')
     },
   },
 };
