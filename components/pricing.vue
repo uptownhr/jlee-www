@@ -26,7 +26,7 @@ export default {
 
   methods: {
     async checkoutRedirect(planId) {
-      if (this.subscribed || !this.loggedIn) return 
+      if (this.subscribed || !this.loggedIn) return;
       const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
       stripe
         .redirectToCheckout({
@@ -84,6 +84,11 @@ export default {
                 </div>
                 <div class="bg-white rounded-t-lg px-6 pt-12 pb-10">
                   <div>
+                    <p
+                      class="text-center text-lg leading-7 font-semibold font-display text-teal-500 uppercase tracking-widest"
+                    >
+                      7 day free trial
+                    </p>
                     <h2
                       class="mt-2 text-center text-3xl leading-9 font-semibold font-display text-gray-900 sm:-mx-6"
                     >
@@ -107,7 +112,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide sm:text-3xl sm:leading-9"
                       >
-                        USD
+                        Monthly
                       </span>
                     </div>
                   </div>
@@ -214,7 +219,12 @@ export default {
                           @click="checkoutRedirect(plan.id)"
                           data-gumroad-single-product="true"
                           class="cursor-pointer block w-full text-center rounded-lg px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
-                          :class="{ 'bg-green-400': subscribed, 'bg-indigo-800': !subscribed, 'opacity-50 cursor-not-allowed': subscribed || !loggedIn }"
+                          :class="{
+                            'bg-green-400': subscribed,
+                            'bg-indigo-800': !subscribed,
+                            'opacity-50 cursor-not-allowed':
+                              subscribed || !loggedIn,
+                          }"
                         >
                           {{ subscribed ? 'Subscribed' : 'Buy Early Access' }}
                         </a>
@@ -255,7 +265,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide"
                       >
-                        USD
+                        Monthly
                       </span>
                     </div>
                   </div>
@@ -398,7 +408,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide"
                       >
-                        USD
+                        Monthly
                       </span>
                     </div>
                   </div>
