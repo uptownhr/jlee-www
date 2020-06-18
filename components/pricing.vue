@@ -26,7 +26,7 @@ export default {
 
   methods: {
     async checkoutRedirect(planId) {
-      if (this.subscribed) return 
+      if (this.subscribed || !this.loggedIn) return 
       const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
       stripe
         .redirectToCheckout({
@@ -208,13 +208,13 @@ export default {
                   </ul>
 
                   <client-only>
-                    <div v-if="loggedIn" class="mt-10">
+                    <div class="mt-10">
                       <div class="rounded-lg shadow-md">
                         <a
                           @click="checkoutRedirect('plan_HGlS8lYEq3FxUU')"
                           data-gumroad-single-product="true"
                           class="cursor-pointer block w-full text-center rounded-lg px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
-                          :class="{ 'bg-green-400': subscribed, 'bg-indigo-800': !subscribed, 'opacity-50 cursor-not-allowed': subscribed }"
+                          :class="{ 'bg-green-400': subscribed, 'bg-indigo-800': !subscribed, 'opacity-50 cursor-not-allowed': subscribed || !loggedIn }"
                         >
                           {{ subscribed ? 'Subscribed' : 'Buy Early Access' }}
                         </a>
@@ -353,7 +353,7 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div v-if="loggedIn" class="mt-10">
+                  <div class="mt-10">
                     <div class="rounded-lg shadow-md">
                       <a
                         data-gumroad-single-product="true"
@@ -496,7 +496,7 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div v-if="loggedIn" class="mt-10">
+                  <div class="mt-10">
                     <div class="rounded-lg shadow-md">
                       <a
                         href="https://gum.co/jYnNI"
