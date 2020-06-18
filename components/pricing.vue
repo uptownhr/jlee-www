@@ -3,18 +3,25 @@ import { loadStripe } from '@stripe/stripe-js/pure';
 import plans from '../data/plans.json';
 
 export default {
+  props: {
+    subscribed: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   computed: {
     plans: () => plans,
     plan() {
       //todo: currently selecting just largest plan
       return this.plans.sort((a, b) => {
         return b.amount - a.amount;
-      })[0]
+      })[0];
     },
 
-    loggedIn () {
-      return this.$store.getters['user/loggedIn']
-    }
+    loggedIn() {
+      return this.$store.getters['user/loggedIn'];
+    },
   },
 
   methods: {
@@ -198,17 +205,21 @@ export default {
                       </p>
                     </li>
                   </ul>
-                  <div v-if="loggedIn" class="mt-10">
-                    <div class="rounded-lg shadow-md">
-                      <a
-                        @click="checkoutRedirect('plan_HGlS8lYEq3FxUU')"
-                        data-gumroad-single-product="true"
-                        class="cursor-pointer block w-full text-center rounded-lg bg-indigo-800 px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
-                      >
-                        Buy Early Access
-                      </a>
+
+                  <client-only>
+                    <div v-if="loggedIn" class="mt-10">
+                      <div class="rounded-lg shadow-md">
+                        <a
+                          @click="checkoutRedirect('plan_HGlS8lYEq3FxUU')"
+                          data-gumroad-single-product="true"
+                          class="cursor-pointer block w-full text-center rounded-lg px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
+                          :class="{ 'bg-green-400': subscribed, 'bg-indigo-800': !subscribed, 'opacity-50 cursor-not-allowed': subscribed }"
+                        >
+                          {{ subscribed ? 'Subscribed' : 'Buy Early Access' }}
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  </client-only>
                 </div>
               </div>
             </div>

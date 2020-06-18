@@ -12,7 +12,7 @@
       </div>
     </div>
     <header></header>
-    <pricing />
+    <pricing :subscribed="hasActiveSubscription" />
   </div>
 </template>
 
