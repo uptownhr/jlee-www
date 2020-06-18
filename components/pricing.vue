@@ -26,6 +26,7 @@ export default {
 
   methods: {
     async checkoutRedirect(planId) {
+      if (subscribed) return 
       const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
       stripe
         .redirectToCheckout({
