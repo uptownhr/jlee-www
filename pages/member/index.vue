@@ -1,13 +1,17 @@
 <template>
   <div>
-    <header>
-      <Nav />
-      <h2 class="text-4xl">Hi, I'm James Lee! Your Personal VueJS <u>Mentor</u></h2>
-      <p>
-        I'm taking on 2 qualified mentees to expedite the process of learning
-        VueJS
-      </p>
-    </header>
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center mt-8">
+        <h2 class="text-4xl">
+          Hi, I'm James Lee! Your Personal VueJS <u>Mentor</u>
+        </h2>
+        <p>
+          I'm taking on 2 qualified mentees to expedite the process of learning
+          VueJS
+        </p>
+      </div>
+    </div>
+    <header></header>
     <pricing />
   </div>
 </template>
@@ -15,18 +19,17 @@
 <script>
 import stripeProductCard from '@/components/stripeProductCard';
 import products from '../../data/products.json';
-import nav from '@/components/nav';
-import pricing from '@/components/pricing'
+import pricing from '@/components/pricing';
 
 export default {
   components: { stripeProductCard, pricing },
 
-  fetch () {
-    console.log('fetch')
+  fetch() {
+    console.log('fetch');
   },
 
   middleware(ctx) {
-    console.log('hi', this, ctx)
+    console.log('hi', this, ctx);
   },
 
   data() {
@@ -45,20 +48,19 @@ export default {
         .filter((p) => p.active)
         .map((p) => ({
           ...p,
-          subscribed: this.checkSubscribed(p.id)
+          subscribed: this.checkSubscribed(p.id),
         }));
     },
 
-    hasActiveSubscription () {
-      return this.products.some(p => p.subscribed)
-    }
+    hasActiveSubscription() {
+      return this.products.some((p) => p.subscribed);
+    },
   },
 
   async mounted() {
     this.loggedIn = await this.$magic.user.isLoggedIn();
-    this.subscriptions = this.loggedIn ? await this.getSubscriptions() : []
+    this.subscriptions = this.loggedIn ? await this.getSubscriptions() : [];
     this.loaded = true;
-    
   },
 
   methods: {
@@ -78,7 +80,7 @@ export default {
       const res = await this.$axios.post(
         '/.netlify/functions/stripe-customer',
         {
-          token
+          token,
         }
       );
 

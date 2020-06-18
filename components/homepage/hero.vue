@@ -82,25 +82,25 @@ export default {
             </div>
             <div class="hidden md:block md:ml-10 md:pr-4">
               <a
-                href="#"
+                href="#my-stack"
                 class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >My Stack
               </a>
               <a
-                href="#"
+                href="#services"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Services
               </a>
-              <a
+              <!-- <a
                 href="#"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >About Me
-              </a>
-              <a
+              </a> -->
+              <!-- <a
                 href="#"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >FAQ
-              </a>
+              </a> -->
               <no-ssr>
                 <nuxt-link
                   v-if="loggedIn"
