@@ -87,7 +87,7 @@ export default {
                     <p
                       class="text-center text-lg leading-7 font-semibold font-display text-teal-500 uppercase tracking-widest"
                     >
-                      7 day free trial
+                      30 days free trial
                     </p>
                     <h2
                       class="mt-2 text-center text-3xl leading-9 font-semibold font-display text-gray-900 sm:-mx-6"
