@@ -78,7 +78,7 @@ export default {
                     <span
                       class="inline-flex rounded-full bg-indigo-400 px-4 py-1 text-sm leading-5 font-semibold tracking-wider uppercase text-white"
                     >
-                      Dedicated Mentorship
+                      Launch Special
                     </span>
                   </div>
                 </div>
