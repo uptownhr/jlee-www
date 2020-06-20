@@ -6,6 +6,7 @@ export default {
       loginForm: {
         email: '',
       },
+      mobileNav: 'none',
     };
   },
 
@@ -19,7 +20,7 @@ export default {
     async handleAuth({ email }) {
       if (this.loggedIn) return this.$router.push('/member');
       await this.$store.dispatch('user/auth', { email });
-      this.$router.push('/member')
+      this.$router.push('/member');
     },
   },
 };
@@ -55,7 +56,10 @@ export default {
                     alt="Logo"
                   />
                 </a>
-                <div class="-mr-2 flex items-center md:hidden">
+                <div
+                  @click="mobileNav = ''"
+                  class="-mr-2 flex items-center md:hidden"
+                >
                   <button
                     type="button"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
@@ -125,6 +129,7 @@ export default {
       -->
         <div
           class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          :style="{ display: mobileNav }"
         >
           <div class="rounded-lg shadow-md">
             <div
@@ -143,6 +148,7 @@ export default {
                 </div>
                 <div class="-mr-2">
                   <button
+                    @click="mobileNav = 'none'"
                     type="button"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
                     aria-label="Close menu"
@@ -168,28 +174,24 @@ export default {
                   href="#"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
-                  >Product
+                  >My Stack
                 </a>
                 <a
                   href="#"
                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
-                  >Features
+                  >Services
                 </a>
-                <a
-                  href="#"
-                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                  role="menuitem"
-                  >Marketplace
-                </a>
-                <a
-                  href="#"
-                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                  role="menuitem"
-                  >Company
-                </a>
+                <no-ssr>
+                  <nuxt-link
+                    v-if="loggedIn"
+                    to="/member"
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    >Members
+                  </nuxt-link>
+                </no-ssr>
               </div>
-              <div>
+              <div v-if="!loggedIn">
                 <a
                   href="#"
                   class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out"

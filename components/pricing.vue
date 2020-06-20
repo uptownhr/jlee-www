@@ -98,7 +98,7 @@ export default {
                       class="mt-4 flex items-center justify-center font-display"
                     >
                       <span
-                        class="-ml-8 text-right text-2xl leading-8 font-semibold text-gray-400 tracking-wide line-through sm:text-3xl sm:leading-9"
+                        class="-ml-8 text-right text-xl leading-8 font-semibold text-gray-400 tracking-wide line-through sm:text-3xl sm:leading-9"
                       >
                         $600
                       </span>
@@ -117,7 +117,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide sm:text-3xl sm:leading-9"
                       >
-                        Monthly
+                        /month
                       </span>
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide"
                       >
-                        Monthly
+                        /month
                       </span>
                     </div>
                   </div>
@@ -413,7 +413,7 @@ export default {
                       <span
                         class="text-2xl leading-8 font-semibold text-gray-400 tracking-wide"
                       >
-                        Monthly
+                        /month
                       </span>
                     </div>
                   </div>
