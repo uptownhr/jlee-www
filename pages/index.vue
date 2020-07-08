@@ -1,17 +1,17 @@
 <script>
-import hero from '@/components/homepage/hero';
+import { Hero } from '@uptownhr/jlee-ui';
 
 export default {
   components: {
-    hero,
+    Hero,
   },
 
-  data () {
+  data() {
     return {
       loginForm: {
-        email: ''
-      }
-    }
+        email: '',
+      },
+    };
   },
 
   computed: {
@@ -21,18 +21,21 @@ export default {
   },
 
   methods: {
-    async handleAuth({ email }) {
-      if (this.loggedIn) return this.$router.push('/member');
+    async handleAuth(email) {
       await this.$store.dispatch('user/auth', { email });
-      this.$router.push('/member')
+      this.handleRedirect();
     },
-  }
+
+    handleRedirect() {
+      this.$router.push('/member');
+    },
+  },
 };
 </script>
 <template>
   <div>
-    <hero />
-
+    <Hero :loggedIn="true" @auth="handleAuth" @redirect="handleRedirect" />
+    
     <div id="my-stack" class="py-24 bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
@@ -212,7 +215,10 @@ export default {
         </h2>
         <no-ssr>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <form @submit.prevent="handleAuth(loginForm)" class="w-full max-w-sm">
+            <form
+              @submit.prevent="handleAuth(loginForm)"
+              class="w-full max-w-sm"
+            >
               <div
                 class="flex items-center border-b border-b-2 border-indigo-500 py-2"
               >
