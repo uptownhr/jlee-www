@@ -22,7 +22,8 @@
     "dev": "nuxt dev",
     "dev:netlify": "netlify dev",
     "pregenerate": "node scripts/stripePullPlans.js && node scripts/stripePullProducts.js",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "netlify:generate": "echo \"\n//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}\" >> .npmrc && yarn generate"
   },
   "devDependencies": {
     "core-js": "2",
