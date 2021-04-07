@@ -3,3 +3,4 @@
 
 [build.environment]
   PORT = "80"
+  NODE_VERSION = "15.8.0"
