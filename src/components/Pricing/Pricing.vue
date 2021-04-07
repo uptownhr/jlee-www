@@ -1,27 +1,29 @@
 <script>
-import { loadStripe } from '@stripe/stripe-js/pure';
-import plans from '../data/plans.json';
+import { loadStripe } from "@stripe/stripe-js/pure";
+import { sortBy } from "lodash/sortBy";
 
 export default {
   props: {
     subscribed: {
       type: Boolean,
-      default: false,
+      default: false
     },
+    plans: {
+      type: Array,
+      default: () => []
+    },
+    loggedIn: {
+      type: Boolean,
+      default: false
+    }
   },
 
   computed: {
-    plans: () => plans,
     plan() {
       //todo: currently selecting just largest plan
-      return this.plans.sort((a, b) => {
-        return b.amount - a.amount;
-      })[0];
-    },
-
-    loggedIn() {
-      return this.$store.getters['user/loggedIn'];
-    },
+      const sorted = sortBy(this.plans, ["amount"]);
+      return sorted[0];
+    }
   },
 
   methods: {
@@ -33,29 +35,27 @@ export default {
           items: [
             {
               plan: planId,
-              quantity: 1,
-            },
+              quantity: 1
+            }
           ],
 
           successUrl: process.env.URL,
-          cancelUrl: process.env.URL,
+          cancelUrl: process.env.URL
         })
-        .then((result) => {
-          console.log('result', result);
-        });
+       
     },
 
     intervalConversion(interval) {
       switch (interval) {
-        case 'month':
-          return 'Monthly';
-        case 'year':
-          return 'Yearly';
+        case "month":
+          return "Monthly";
+        case "year":
+          return "Yearly";
         default:
           return interval;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -217,25 +217,23 @@ export default {
                     </li>
                   </ul>
 
-                  <client-only>
-                    <div class="mt-10">
-                      <div class="rounded-lg shadow-md">
-                        <a
-                          @click="checkoutRedirect(plan.id)"
-                          data-gumroad-single-product="true"
-                          class="cursor-pointer block w-full text-center rounded-lg px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
-                          :class="{
-                            'bg-green-400': subscribed,
-                            'bg-indigo-800': !subscribed,
-                            'opacity-50 cursor-not-allowed':
-                              subscribed || !loggedIn,
-                          }"
-                        >
-                          {{ subscribed ? 'Subscribed' : 'Buy Early Access' }}
-                        </a>
-                      </div>
+                  <div class="mt-10">
+                    <div class="rounded-lg shadow-md">
+                      <a
+                        @click="checkoutRedirect(plan.id)"
+                        data-gumroad-single-product="true"
+                        class="cursor-pointer block w-full text-center rounded-lg px-6 py-4 text-xl leading-6 font-semibold font-display text-white hover:bg-gray-700 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
+                        :class="{
+                          'bg-green-400': subscribed,
+                          'bg-indigo-800': !subscribed,
+                          'opacity-50 cursor-not-allowed':
+                            subscribed || !loggedIn
+                        }"
+                      >
+                        {{ subscribed ? "Subscribed" : "Buy Early Access" }}
+                      </a>
                     </div>
-                  </client-only>
+                  </div>
                 </div>
               </div>
             </div>

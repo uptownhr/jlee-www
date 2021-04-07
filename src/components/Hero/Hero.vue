@@ -1,28 +1,31 @@
 <script>
+import Logo from "./logo";
+import clientOnly from "vue-client-only";
+
 export default {
+  components: { Logo, clientOnly },
+  props: {
+    loggedIn: {
+      default: false
+    }
+  },
   data() {
     return {
       showLoginForm: false,
       loginForm: {
-        email: '',
+        email: ""
       },
-      mobileNav: 'none',
+      mobileNav: "none"
     };
-  },
-
-  computed: {
-    loggedIn() {
-      return this.$store.getters['user/loggedIn'];
-    },
   },
 
   methods: {
     async handleAuth({ email }) {
-      if (this.loggedIn) return this.$router.push('/member');
-      await this.$store.dispatch('user/auth', { email });
-      this.$router.push('/member');
-    },
-  },
+      if (this.loggedIn) return this.$emit("redirect");
+
+      this.$emit("auth", email);
+    }
+  }
 };
 </script>
 
@@ -50,11 +53,7 @@ export default {
             >
               <div class="flex items-center justify-between w-full md:w-auto">
                 <a href="#" aria-label="Home">
-                  <img
-                    class="h-8 w-auto sm:h-10"
-                    src="/img/logos/workflow-mark-on-white.svg"
-                    alt="Logo"
-                  />
+                  <Logo class="h8 w-auto sm:h-10" />
                 </a>
                 <div
                   @click="mobileNav = ''"
@@ -88,31 +87,19 @@ export default {
               <a
                 href="#my-stack"
                 class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >My Stack
+                >Latest Work
               </a>
               <a
                 href="#services"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >Services
+                >Investments
               </a>
-              <!-- <a
-                href="#"
+              <a
+                href="https://ui.jlee.biz"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >About Me
-              </a> -->
-              <!-- <a
-                href="#"
-                class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                >FAQ
-              </a> -->
-              <no-ssr>
-                <nuxt-link
-                  v-if="loggedIn"
-                  to="/member"
-                  class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 transition duration-150 ease-in-out"
-                  >Members
-                </nuxt-link>
-              </no-ssr>
+                target="_blank"
+                >Contact Me
+              </a>
             </div>
           </nav>
         </div>
@@ -174,31 +161,19 @@ export default {
                   href="#"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
-                  >My Stack
+                  >Latest Work
                 </a>
                 <a
                   href="#"
                   class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                   role="menuitem"
-                  >Services
+                  >Investments
                 </a>
-                <no-ssr>
-                  <nuxt-link
-                    v-if="loggedIn"
-                    to="/member"
-                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                    >Members
-                  </nuxt-link>
-                </no-ssr>
-              </div>
-              <div v-if="!loggedIn">
-                <a
-                  href="#"
-                  class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out"
-                  role="menuitem"
-                >
-                  Log in
-                </a>
+                <nuxt-link
+                  to="/member"
+                  class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                  >Contact Me
+                </nuxt-link>
               </div>
             </div>
           </div>
@@ -211,25 +186,23 @@ export default {
             <h2
               class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl"
             >
-              Hi, I'm James Lee
+              Hi! I'm James Lee
               <br class="xl:hidden" />
-              <span class="text-indigo-600">VueJS Mentor </span>
+              <span class="text-indigo-600">a Software Engineer</span>
             </h2>
             <p
               class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
             >
-              I’m a software engineer that love using VueJS. I’ve been using Vue
-              for 4 years and have not looked back. Let me guide and fast track
-              you to using Vue today.
+              and a husband with two kids. I enjoy tackling issues related to SMBs and enabling entrepreneurs. My mission is to remove the friction of one becoming an entrepreneur and increase the amount of Small Business in the world.
             </p>
-            <no-ssr>
-              <div
-                class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
+            <div
+              class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
+            >
+              <form
+                @submit.prevent="handleAuth(loginForm)"
+                class="w-full max-w-sm"
               >
-                <form
-                  @submit.prevent="handleAuth(loginForm)"
-                  class="w-full max-w-sm"
-                >
+                <client-only>
                   <div
                     v-if="!loggedIn"
                     class="flex items-center border-b border-b-2 border-indigo-500 py-2"
@@ -242,18 +215,18 @@ export default {
                       aria-label="Email"
                     />
                   </div>
+                </client-only>
 
-                  <div class="rounded-md shadow mt-2">
-                    <button
-                      href="#"
-                      class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-                    >
-                      Get started
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </no-ssr>
+                <div class="rounded-md shadow mt-2">
+                  <button
+                    href="#"
+                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+                  >
+                    Contact Me
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </main>
       </div>

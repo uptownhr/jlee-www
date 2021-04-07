@@ -3,6 +3,15 @@ require('dotenv').config();
 console.log(process.env);
 
 export default {
+  srcDir: 'src/',
+  rootDir: './',
+
+  env: {
+    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
+    URL: process.env.URL,
+    MAGIC_KEY: process.env.MAGIC_KEY,
+  },
+
   head: {
     htmlAttrs: {
       lang: 'en',
@@ -75,15 +84,9 @@ export default {
     },
   },
 
-  env: {
-    STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
-    URL: process.env.URL,
-    MAGIC_KEY: process.env.MAGIC_KEY,
-  },
-
   plugins: [
-    { src: '@/plugins/magic.js', mode: 'client' },
-    { src: '@/plugins/auth.js', mode: 'client' },
+    /*{ src: '@/plugins/magic.js', mode: 'client' },
+    { src: '@/plugins/auth.js', mode: 'client' },*/
   ],
 
   axios: {
