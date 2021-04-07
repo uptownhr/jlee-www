@@ -7,3 +7,4 @@ static/sw.js
 .netlify
 yarn-error.log
 /.nuxt-storybook/
+/src/static/sw.js

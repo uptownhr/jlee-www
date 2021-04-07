@@ -7,7 +7,7 @@
     "@magic-sdk/admin": "^1.2.2",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "@nuxtjs/tailwindcss": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^4",
     "@stripe/stripe-js": "^1.5.0",
     "@tailwindcss/ui": "^0.3.0",
     "dotenv": "^8.2.0",
@@ -20,9 +20,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "dev:netlify": "netlify dev",
-    "pregenerate": "node scripts/stripePullPlans.js && node scripts/stripePullProducts.js",
     "generate": "nuxt generate",
-    "netlify:generate": "echo \"\n//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}\" >> .npmrc && yarn generate"
   },
   "devDependencies": {
     "@nuxtjs/storybook": "^4.0.1",
