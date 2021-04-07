@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "dev:netlify": "netlify dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate"
   },
   "devDependencies": {
     "@nuxtjs/storybook": "^4.0.1",
