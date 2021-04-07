@@ -1,5 +1,4 @@
 import Pricing from './Pricing'
-import '../../assets/tailwind.css'
 
 export default {
   title: 'Pricing'

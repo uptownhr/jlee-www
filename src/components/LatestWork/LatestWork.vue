@@ -1,5 +1,5 @@
 <template>
-  <div id="my-stack" class="py-24 bg-white">
+  <div id="latest-work" class="py-24 bg-white">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <p

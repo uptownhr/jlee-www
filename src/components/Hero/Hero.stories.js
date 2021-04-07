@@ -1,5 +1,4 @@
 import Hero from "./Hero";
-import "../../assets/tailwind.css";
 
 export default {
   title: "Hero"

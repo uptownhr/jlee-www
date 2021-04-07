@@ -6,3 +6,4 @@ static/sw.js
 # Local Netlify folder
 .netlify
 yarn-error.log
+/.nuxt-storybook/
