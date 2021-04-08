@@ -3,22 +3,32 @@
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <p
-            class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
+          class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
         >
-          Latest Work
+          Current Work
         </p>
         <h3
-            class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+          class="mt-2 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
           Bambee - Hire an HR Manager for $99/month
         </h3>
         <p
-            class="mt-8 mb-16 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
+          class="mt-8 mb-16 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
         >
-          Hiring, running payroll, filing government forms and staying up to date on Federal and State policies are just
-          a few items a business owner must do. Bambee lays down the foundation and implement automation to remove the
-          burden of HR backoffice tasks from the business owner.
+          Hiring, running payroll, filing government forms and staying up to
+          date on Federal and State policies are just a few items a business
+          owner must do. Bambee lays down the foundation and implement
+          automation to remove the burden of HR backoffice tasks from the
+          business owner.
         </p>
+
+        <h3
+          class="mt-2 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl sm:leading-10"
+        >
+          Distinguished Engineer: Develop and Launch Payroll
+        </h3>
+        <h3></h3>
+        <p></p>
       </div>
 
       <div class="mt-10">
@@ -27,9 +37,11 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                    class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
+                  class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
                 >
-                  2020 <br/> - <br/> Present
+                  2020 <br />
+                  - <br />
+                  Present
                 </div>
               </div>
               <div class="ml-4">
@@ -37,11 +49,9 @@
                   Distinguished Engineer
                 </h4>
                 <p class="mt-2 text-base leading-6 text-gray-500">
-                  A solid foundation that embraces convention over
-                  configuration. Nuxt introduces a module system to the Vue
-                  ecosystem. Adding plugins like Axios, PWA support, creating
-                  Sitemaps, and UI libraries can be accomplished with a simple
-                  module install.
+                  New standards for testing, deployment, communication and
+                  authentication is being developed. New patterns and tools like
+                  Caching, Graphql, Events and Queues are being introduced.
                 </p>
               </div>
             </div>
@@ -50,9 +60,11 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                    class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
+                  class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
                 >
-                  2018 <br/> - <br/> 2019
+                  2018 <br />
+                  - <br />
+                  2019
                 </div>
               </div>
               <div class="ml-4">
@@ -72,9 +84,11 @@
             <div class="flex">
               <div class="flex-shrink-0">
                 <div
-                    class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
+                  class="flex items-center justify-center h-24 w-20 rounded-md bg-indigo-500 text-white text-center"
                 >
-                  2016 <br/> - <br/> 2017
+                  2016 <br />
+                  - <br />
+                  2017
                 </div>
               </div>
               <div class="ml-4">

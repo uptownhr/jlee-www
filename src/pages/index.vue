@@ -1,11 +1,11 @@
 <script>
 import Hero from '@/components/Hero/Hero'
-import LatestWork from '@/components/LatestWork/LatestWork'
+import CurrentWork from '@/components/CurrentWork/CurrentWork'
 
 export default {
   components: {
     Hero,
-    LatestWork
+    CurrentWork
   },
 
   data() {
@@ -37,7 +37,7 @@ export default {
 <template>
   <div>
     <Hero :loggedIn="true" @auth="handleAuth" @redirect="handleRedirect" />
-    <LatestWork />
+    <CurrentWork />
     <div id="contact-me" class="bg-gray-50">
       <div
         class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
@@ -45,9 +45,9 @@ export default {
         <h2
           class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
-          Ready to dive in?
+          Want to talk?
           <br />
-          <span class="text-indigo-600">Start your mentorship today. </span>
+          <span class="text-indigo-600">Reach out today. </span>
         </h2>
         <no-ssr>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">

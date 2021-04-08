@@ -8,3 +8,4 @@ static/sw.js
 yarn-error.log
 /.nuxt-storybook/
 /src/static/sw.js
+.DS_Store

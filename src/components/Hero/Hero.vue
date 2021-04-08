@@ -84,16 +84,16 @@ export default {
               </div>
             </div>
             <div class="hidden md:block md:ml-10 md:pr-4">
-              <a
+              <!-- <a
                 href="#latest-work"
                 class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Latest Work
-              </a>
-              <a
+              </a> -->
+              <!-- <a
                 href="#investments"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Investments
-              </a>
+              </a> -->
               <a
                 href="#contact-me"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
@@ -192,7 +192,10 @@ export default {
             <p
               class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
             >
-              and a husband with two kids. I enjoy tackling issues related to SMBs and enabling entrepreneurs. My mission is to remove the friction of one becoming an entrepreneur and increase the amount of Small Business in the world.
+              and a husband with two kids. I enjoy tackling issues related to
+              SMBs and enabling entrepreneurs. My mission is to remove the
+              friction of one becoming an entrepreneur and increase the amount
+              of Small Business in the world.
             </p>
             <div
               class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"

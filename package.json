@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "nuxt dev",
+    "dev:netlify": "netlify dev",
+    "generate": "nuxt generate",
+    "storybook": "nuxt storybook"
+  },
+
   "dependencies": {
     "@magic-sdk/admin": "^1.2.2",
     "@nuxtjs/axios": "^5.11.0",
@@ -16,11 +23,6 @@
     "nuxt": "^2.12.2",
     "stripe": "^8.52.0",
     "vue-currency-filter": "^5.1.0"
-  },
-  "scripts": {
-    "dev": "nuxt dev",
-    "dev:netlify": "netlify dev",
-    "generate": "nuxt generate"
   },
   "devDependencies": {
     "@nuxtjs/storybook": "^4.0.1",
