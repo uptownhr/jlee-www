@@ -5,7 +5,7 @@ import CurrentWork from '@/components/CurrentWork/CurrentWork'
 export default {
   components: {
     Hero,
-    CurrentWork
+    CurrentWork,
   },
 
   data() {
@@ -13,30 +13,36 @@ export default {
       loginForm: {
         email: '',
       },
-    };
+    }
   },
 
   computed: {
     loggedIn() {
-      return this.$store.getters['user/loggedIn'];
+      return this.$store.getters['user/loggedIn']
     },
   },
 
   methods: {
     async handleAuth(email) {
-      await this.$store.dispatch('user/auth', { email });
-      this.handleRedirect();
+      let success = false
+      if (!this.loggedIn) {
+        success = await this.$store.dispatch('user/auth', { email })
+
+        if (!success) return
+      }
+
+      this.handleRedirect()
     },
 
     handleRedirect() {
-      this.$router.push('/member');
+      this.$router.push('/contact-me')
     },
   },
-};
+}
 </script>
 <template>
   <div>
-    <Hero :loggedIn="true" @auth="handleAuth" @redirect="handleRedirect" />
+    <Hero :loggedIn="loggedIn" @auth="handleAuth" @redirect="handleRedirect" />
     <CurrentWork />
     <div id="contact-me" class="bg-gray-50">
       <div
@@ -49,7 +55,7 @@ export default {
           <br />
           <span class="text-indigo-600">Reach out today. </span>
         </h2>
-        <no-ssr>
+        <client-only>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <form
               @submit.prevent="handleAuth(loginForm)"
@@ -70,12 +76,12 @@ export default {
                   class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
                   type="submit"
                 >
-                  Get Started
+                  Contact Me
                 </button>
               </div>
             </form>
           </div>
-        </no-ssr>
+        </client-only>
       </div>
     </div>
   </div>

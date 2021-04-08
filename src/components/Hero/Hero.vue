@@ -1,37 +1,35 @@
 <script>
-import Logo from "./logo";
-import clientOnly from "vue-client-only";
+import Logo from './logo'
+import clientOnly from 'vue-client-only'
 
 export default {
   components: { Logo, clientOnly },
   props: {
     loggedIn: {
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       showLoginForm: false,
       loginForm: {
-        email: ""
+        email: '',
       },
-      mobileNav: "none"
-    };
+      mobileNav: 'none',
+    }
   },
 
   methods: {
     async handleAuth({ email }) {
-      if (this.loggedIn) return this.$emit("redirect");
-
-      this.$emit("auth", email);
-    }
-  }
-};
+      this.$emit('auth', email)
+    },
+  },
+}
 </script>
 
 <template>
   <div class="relative bg-white overflow-hidden">
-    <div class="max-w-screen-xl mx-auto ">
+    <div class="max-w-screen-xl mx-auto">
       <div
         class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
       >
@@ -68,11 +66,11 @@ export default {
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Investments
               </a> -->
-              <a
-                href="#contact-me"
+              <nuxt-link
+                to="/contact-me"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Contact Me
-              </a>
+              </nuxt-link>
             </div>
           </nav>
         </div>

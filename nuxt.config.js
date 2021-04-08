@@ -85,8 +85,8 @@ export default {
   },
 
   plugins: [
-    /*{ src: '@/plugins/magic.js', mode: 'client' },
-    { src: '@/plugins/auth.js', mode: 'client' },*/
+    { src: '@/plugins/magic.js', mode: 'client' },
+    { src: '@/plugins/auth.js', mode: 'client' },
   ],
 
   axios: {
