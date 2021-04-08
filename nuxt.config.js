@@ -1,10 +1,10 @@
-require('dotenv').config();
-
-console.log(process.env);
+require('dotenv').config()
 
 export default {
   srcDir: 'src/',
   rootDir: './',
+
+  components: true,
 
   env: {
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
@@ -56,7 +56,7 @@ export default {
       /* { property: 'og:image:type', content: 'image/png' } */
     ],
   },
-  buildModules: ['@nuxtjs/tailwindcss'],
+  buildModules: ['@nuxtjs/tailwindcss', '@braid/vue-formulate/nuxt'],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -95,4 +95,10 @@ export default {
       ? 8888 
       : process.env.PORT */
   },
-};
+
+  tailwindcss: {
+    jit: false,
+    config: './tailwind.config.js',
+    viewer: true,
+  },
+}
