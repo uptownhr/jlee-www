@@ -1,5 +1,5 @@
 <template>
-  <div id="latest-work" class="py-24 bg-white">
+  <div id="latest-work" class="py-12 md:py-24 bg-white">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
         <p
@@ -12,10 +12,8 @@
         >
           Bambee - New Product Development
         </h3>
-        <p
-          class="mt-8 mb-16 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto"
-        >
-          Working within a newly formed team to tackle Payroll, my primary role
+        <p class="md:mt-8 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+          Working within a newly formed team to tackle Payroll. My primary role
           is to provide architectural support for interfacing with the Core
           platform. Payroll is our first new product that is running as an
           independent service and will be paving the patterns towards
