@@ -91,6 +91,12 @@ export default {
               </div>
             </div>
             <div class="hidden md:block md:ml-10 md:pr-4">
+              <a
+                href="https://www.linkedin.com/in/uptown/"
+                class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+                target="_blank"
+                >LinkedIn
+              </a>
               <!-- <a
                 href="#latest-work"
                 class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
