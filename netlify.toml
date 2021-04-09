@@ -7,4 +7,4 @@
   AUTOCODE_ENVIRONMENT  = "dev"
 
 [context.production.environment]
-  AUTOCODE_ENVIRONMENT  = "0.0.1"
+  AUTOCODE_ENVIRONMENT  = ""
