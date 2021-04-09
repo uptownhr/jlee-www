@@ -7,11 +7,11 @@
         >
           Current Work
         </p>
-        <h3
+        <h2
           class="mt-2 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
           Bambee - New Product Development
-        </h3>
+        </h2>
         <p class="md:mt-8 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
           Working within a newly formed team to tackle Payroll. My primary role
           is to provide architectural support for interfacing with the Core
