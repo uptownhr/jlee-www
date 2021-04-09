@@ -4,7 +4,9 @@
 [build.environment]
   PORT = "80"
   NODE_VERSION = "15.8.0"
-  AUTOCODE_ENVIRONMENT  = "dev"
+  AUTOCODE_ENVIRONMENT = "dev"
+  MAGIC_KEY = "pk_test_695A4B9AAE9BF75F"
 
 [context.production.environment]
   AUTOCODE_ENVIRONMENT  = ""
+  MAGIC_KEY = "pk_live_2930CBA7062D6637"
