@@ -27,7 +27,6 @@ export default {
     },
 
     reasonHelper() {
-      console.log(this.form)
       const reason = this.reasons.find((r) => r.value === this.form.reason)
 
       return reason ? reason.helper : ''
@@ -39,14 +38,33 @@ export default {
       form: {
         reason: '',
         about: '',
+        disabled: false
       },
     }
   },
+  methods: {
+    submitForm({reason, about}){
+      this.form.disabled = true
+      this.$emit('submit', {reason, about})
+    },
+
+    resetForm (opts) {
+      this.form = {
+        reason: '',
+        about: '',
+        disabled: false,
+        ...opts
+      }
+    }
+  }
 }
 </script>
 
 <template>
-  <form class="space-y-8 divide-y divide-gray-200">
+  <form
+    @submit.prevent="submitForm(form)"
+    class="space-y-8 divide-y divide-gray-200"
+  >
     <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
       <div>
         <div>
@@ -117,9 +135,32 @@ export default {
     <div class="pt-5">
       <div class="flex justify-end">
         <button
+          :disabled="form.disabled"
           type="submit"
           class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
+          <svg
+            v-if="form.disabled"
+            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+
           Send
         </button>
       </div>

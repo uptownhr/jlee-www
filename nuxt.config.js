@@ -10,6 +10,7 @@ export default {
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
     URL: process.env.URL,
     MAGIC_KEY: process.env.MAGIC_KEY,
+    AUTOCODE_ENVIRONMENT: process.env.AUTOCODE_ENVIRONMENT
   },
 
   head: {

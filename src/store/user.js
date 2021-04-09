@@ -17,7 +17,7 @@ export const mutations = {
 export const actions = {
   async auth({ commit }, { email }) {
     try {
-      const test = await this.$magic.auth.loginWithMagicLink({ email })
+      await this.$magic.auth.loginWithMagicLink({ email })
 
       commit('setLoggedIn', true)
     } catch (e) {
