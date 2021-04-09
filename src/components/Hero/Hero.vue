@@ -2,42 +2,7 @@
 import Logo from './logo'
 import clientOnly from 'vue-client-only'
 
-function htmlHead({title, description}) {
-  return {
-    title,
-    meta: [
-      {
-        property: 'og:title',
-        content: title
-      },
-      {
-        property: 'description',
-        content: description
-      },
-      {
-        property: 'og:description',
-        content: description
-      },
-      /* {
-        property: 'og:image',
-        content: 'https://www.spacedtime.com/spacedtime-logo.png'
-      }, */
-
-      /* { property: 'og:image:type', content: 'image/png' } */
-    ]
-  }
-}
-
-const head = htmlHead({
-  title: 'James Lee - Software Engineer',
-  description: `Software Engineer, a husband, and a father of two kids. I enjoy tackling issues related to
-              SMBs and enabling entrepreneurs. My mission is to remove the
-              friction of one becoming an entrepreneur and increase the amount
-              of Small Business in the world.`
-})
-
 export default {
-  head,
   components: { Logo, clientOnly },
   props: {
     loggedIn: {
@@ -85,17 +50,25 @@ export default {
               class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
             >
               <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="#" aria-label="Home">
+                <nuxt-link to="/" aria-label="Home">
                   <Logo class="h8 w-auto sm:h-10" />
-                </a>
+                </nuxt-link>
               </div>
             </div>
             <div class="hidden md:block md:ml-10 md:pr-4">
+              <nuxt-link
+                  to="/mentorship"
+                  class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+              >
+                Mentorship
+              </nuxt-link>
+
               <a
                 href="https://www.linkedin.com/in/uptown/"
-                class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+                class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 target="_blank"
-                >LinkedIn
+              >
+                LinkedIn
               </a>
               <!-- <a
                 href="#latest-work"

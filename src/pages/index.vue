@@ -1,8 +1,18 @@
 <script>
 import Hero from '@/components/Hero/Hero'
 import CurrentWork from '@/components/CurrentWork/CurrentWork'
+import {htmlHead} from "@/lib/helpers";
+
+const head = htmlHead({
+  title: 'James Lee - Software Engineer',
+  description: `Software Engineer, a husband, and a father of two kids. I enjoy tackling issues related to
+              SMBs and enabling entrepreneurs. My mission is to remove the
+              friction of one becoming an entrepreneur and increase the amount
+              of Small Business in the world.`
+})
 
 export default {
+  head,
   components: {
     Hero,
     CurrentWork,
