@@ -36,7 +36,7 @@ export default {
     async handleAuth(email) {
       let success = false
       if (!this.loggedIn) {
-        success = await this.$store.dispatch('user/auth', { email })
+        success = await this.$store.dispatch('user/auth', {email})
 
         if (!success) return
       }
@@ -52,39 +52,51 @@ export default {
 </script>
 <template>
   <div>
-    <Hero :loggedIn="loggedIn" @auth="handleAuth" @redirect="handleRedirect" />
-    <CurrentWork />
+    <Hero :loggedIn="loggedIn">
+      <template slot="heading-text">
+        Hi! I'm James Lee, <br/>
+        <span class="text-indigo-600">a Software Engineer</span>
+      </template>
+      <template slot="sub-text">
+        a husband, and a father of two kids. I enjoy tackling issues
+        related to SMBs and enabling entrepreneurs. My mission is to
+        remove the friction of one becoming an entrepreneur and increase
+        the amount of Small Business in the world.
+      </template>
+      <LoginForm @auth="handleAuth"/>
+    </Hero>
+    <CurrentWork/>
     <div id="contact-me" class="bg-gray-50">
       <div
-        class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
+          class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
       >
         <h2
-          class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+            class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
           Want to talk?
-          <br />
+          <br/>
           <span class="text-indigo-600">Reach out today. </span>
         </h2>
         <client-only>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <form
-              @submit.prevent="handleAuth(loginForm)"
-              class="w-full max-w-sm"
+                class="w-full max-w-sm"
+                @submit.prevent="handleAuth(loginForm)"
             >
               <div
-                class="flex items-center border-b border-b-2 border-indigo-500 py-2"
+                  class="flex items-center border-b border-b-2 border-indigo-500 py-2"
               >
                 <input
-                  v-if="!loggedIn"
-                  v-model="loginForm.email"
-                  class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  type="text"
-                  placeholder="Email"
-                  aria-label="Email"
+                    v-if="!loggedIn"
+                    v-model="loginForm.email"
+                    aria-label="Email"
+                    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    placeholder="Email"
+                    type="text"
                 />
                 <button
-                  class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
-                  type="submit"
+                    class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
+                    type="submit"
                 >
                   Contact Me
                 </button>
