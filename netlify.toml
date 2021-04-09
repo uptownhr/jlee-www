@@ -4,3 +4,7 @@
 [build.environment]
   PORT = "80"
   NODE_VERSION = "15.8.0"
+  AUTOCODE_ENVIRONMENT  = "dev"
+
+[context.production.environment]
+  AUTOCODE_ENVIRONMENT  = "0.0.1"
