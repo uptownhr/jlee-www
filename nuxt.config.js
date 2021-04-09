@@ -18,46 +18,21 @@ export default {
       lang: 'en',
     },
 
-    title: 'James Lee - Mentorship',
-
     meta: [
       { charset: 'utf-8' },
+
       {
         name: 'viewport',
         content:
           'width=device-width, initial-scale=1, maximum-scale=5, minimal-ui',
       },
 
-      { property: 'og:url', content: 'https://www.jlee.biz' },
       { property: 'og:type', content: 'website' },
-
-      {
-        property: 'og:title',
-        content: 'James Lee - Mentorship',
-      },
-
-      {
-        vmid: 'description',
-        hid: 'description',
-        name: 'description',
-        content: 'Your Personal VueJS Mentor',
-      },
-
-      {
-        vmid: 'og:description',
-        property: 'og:description',
-        content: 'Your Personal VueJS Mentor',
-      },
-
-      /* {
-        property: 'og:image',
-        content: 'https://www.spacedtime.com/spacedtime-logo.png'
-      }, */
-
-      /* { property: 'og:image:type', content: 'image/png' } */
     ],
   },
+  
   buildModules: ['@nuxtjs/tailwindcss', '@braid/vue-formulate/nuxt'],
+
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',

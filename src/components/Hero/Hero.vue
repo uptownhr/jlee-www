@@ -2,7 +2,42 @@
 import Logo from './logo'
 import clientOnly from 'vue-client-only'
 
+function htmlHead({title, description}) {
+  return {
+    title,
+    meta: [
+      {
+        property: 'og:title',
+        content: title
+      },
+      {
+        property: 'description',
+        content: description
+      },
+      {
+        property: 'og:description',
+        content: description
+      },
+      /* {
+        property: 'og:image',
+        content: 'https://www.spacedtime.com/spacedtime-logo.png'
+      }, */
+
+      /* { property: 'og:image:type', content: 'image/png' } */
+    ]
+  }
+}
+
+const head = htmlHead({
+  title: 'James Lee - Software Engineer',
+  description: `Software Engineer, a husband, and a father of two kids. I enjoy tackling issues related to
+              SMBs and enabling entrepreneurs. My mission is to remove the
+              friction of one becoming an entrepreneur and increase the amount
+              of Small Business in the world.`
+})
+
 export default {
+  head,
   components: { Logo, clientOnly },
   props: {
     loggedIn: {
@@ -88,10 +123,10 @@ export default {
             <p
               class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
             >
-              and a husband with two kids. I enjoy tackling issues related to
-              SMBs and enabling entrepreneurs. My mission is to remove the
-              friction of one becoming an entrepreneur and increase the amount
-              of Small Business in the world.
+              a husband, and a father of two kids. I enjoy tackling issues
+              related to SMBs and enabling entrepreneurs. My mission is to
+              remove the friction of one becoming an entrepreneur and increase
+              the amount of Small Business in the world.
             </p>
             <div
               class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
