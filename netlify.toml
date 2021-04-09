@@ -6,7 +6,9 @@
   NODE_VERSION = "15.8.0"
   AUTOCODE_ENVIRONMENT = "dev"
   MAGIC_KEY = "pk_test_695A4B9AAE9BF75F"
+  STRIPE_PUBLIC = "pk_test_cew6HXp27gXlo4OlOjUQIVah"
 
 [context.production.environment]
   AUTOCODE_ENVIRONMENT  = ""
   MAGIC_KEY = "pk_live_2930CBA7062D6637"
+  STRIPE_PUBLIC = "pk_live_2jTCsLUKkz6Udc4DphAAPoud"
