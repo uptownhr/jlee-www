@@ -101,11 +101,11 @@ export default {
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Investments
               </a> -->
-              <nuxt-link
+              <!-- <nuxt-link
                 to="/contact-me"
                 class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 >Contact Me
-              </nuxt-link>
+              </nuxt-link> -->
             </div>
           </nav>
         </div>
