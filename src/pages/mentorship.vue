@@ -48,7 +48,7 @@ export default {
   <div>
     <Hero :loggedIn="loggedIn">
       <template slot="heading-text">
-        Mentorship for,<br />
+        Mentorship for,<br/>
         <span class="text-indigo-600">VueJS</span>
       </template>
       <template slot="sub-text">
@@ -82,7 +82,7 @@ export default {
         </div>
 
         <div class="mt-10">
-          <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+          <ul class="md:grid md:grid-cols-2 md:gap-4">
             <li>
               <div class="flex">
                 <div class="flex-shrink-0">
@@ -224,46 +224,17 @@ export default {
         </div>
       </div>
     </div>
-    <div class="bg-gray-50">
-      <div
-          class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
-      >
-        <h2
-            class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-        >
-          Ready to dive in?
-          <br/>
-          <span class="text-indigo-600">Start your mentorship today. </span>
-        </h2>
-        <no-ssr>
-          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <form
-                class="w-full max-w-sm"
-                @submit.prevent="handleAuth(loginForm)"
-            >
-              <div
-                  class="flex items-center border-b border-b-2 border-indigo-500 py-2"
-              >
-                <input
-                    v-if="!loggedIn"
-                    v-model="loginForm.email"
-                    aria-label="Email"
-                    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    placeholder="Email"
-                    type="text"
-                />
-                <button
-                    class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
-                    type="submit"
-                >
-                  Get Started
-                </button>
-              </div>
-            </form>
-          </div>
-        </no-ssr>
-      </div>
-    </div>
+
+    <PageCTABreak>
+      <template slot="heading-text">
+        Ready to dive in?
+        <br/>
+        <span class="text-indigo-600">Start your mentorship today. </span>
+      </template>
+      <template slot="cta">
+        <LoginForm :inline-btn="true" @auth="handleAuth"/>
+      </template>
+    </PageCTABreak>
 
     <div id="services" class="py-24 bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -287,7 +258,7 @@ export default {
         </div>
 
         <div class="mt-10">
-          <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
+          <ul class="md:grid md:grid-cols-2 md:gap-4">
             <li>
               <div class="flex">
                 <div class="flex-shrink-0">

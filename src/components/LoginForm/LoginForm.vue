@@ -4,6 +4,10 @@ export default {
     loggedIn: {
       default: false,
     },
+
+    inlineBtn: {
+      default: false
+    }
   },
 
   data() {
@@ -39,10 +43,17 @@ export default {
             placeholder="Email"
             aria-label="Email"
         />
+        <button
+            v-if="inlineBtn"
+            class="flex-shrink-0 bg-indigo-500 hover:bg-indigo-700 border-indigo-500 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
+            type="submit"
+        >
+          Contact Me
+        </button>
       </div>
     </client-only>
 
-    <div class="rounded-md shadow mt-2">
+    <div v-if="!inlineBtn" class="rounded-md shadow mt-2">
       <button
           href="#"
           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
