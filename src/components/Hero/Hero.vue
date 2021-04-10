@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="relative bg-white overflow-hidden">
     <div class="max-w-screen-xl mx-auto">
       <div
