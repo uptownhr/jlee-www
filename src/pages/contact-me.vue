@@ -3,7 +3,7 @@ import autocode from '@/services/autocode'
 
 export default {
   async middleware ({store, redirect}) {
-    const loggedIn = await store.dispatch('user/checkLogin')
+    const loggedIn = process.server ? false : await store.dispatch('user/checkLogin')
 
     if (!loggedIn) redirect('/')
   },
