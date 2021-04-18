@@ -83,7 +83,7 @@ export default {
       <nuxt-link
           to="mentorship"
           class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out mt-4 block"
-      >Learn More</nuxt-link>
+      >Vue Mentorship Details</nuxt-link>
     </SectionText>
 
     <PageCTABreak>

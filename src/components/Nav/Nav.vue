@@ -23,7 +23,7 @@ export default {
           to="/mentorship"
           class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
       >
-        Mentorship
+        Vue Mentorship
       </nuxt-link>
 
       <a
