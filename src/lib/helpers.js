@@ -1,18 +1,21 @@
-export function htmlHead({title, description}) {
+export function htmlHead({ title, description }) {
   return {
     title,
     meta: [
       {
         property: 'og:title',
-        content: title
+        content: title,
+        hid: 'title',
       },
       {
         property: 'description',
-        content: description
+        content: description,
+        hid: 'description',
       },
       {
         property: 'og:description',
-        content: description
+        content: description,
+        hid: 'og:description',
       },
       /* {
         property: 'og:image',
@@ -20,6 +23,6 @@ export function htmlHead({title, description}) {
       }, */
 
       /* { property: 'og:image:type', content: 'image/png' } */
-    ]
+    ],
   }
 }
