@@ -11,7 +11,7 @@ export default {
     STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
     URL: process.env.URL,
     MAGIC_KEY: process.env.MAGIC_KEY,
-    AUTOCODE_ENVIRONMENT: process.env.AUTOCODE_ENVIRONMENT
+    AUTOCODE_ENVIRONMENT: process.env.AUTOCODE_ENVIRONMENT,
   },
 
   head: {
@@ -31,7 +31,7 @@ export default {
       { property: 'og:type', content: 'website' },
     ],
   },
-  
+
   buildModules: ['@nuxtjs/tailwindcss', '@braid/vue-formulate/nuxt'],
 
   modules: [
@@ -52,12 +52,12 @@ export default {
 
   pwa: {
     meta: {
-      name: 'Get Paid',
+      name: 'James Lee - Software Engineer',
     },
     manifest: {
-      name: 'Get Paid',
+      name: 'James Lee - Software Engineer',
       lang: 'en',
-      short_name: 'Get Paid',
+      short_name: 'James Lee',
     },
   },
 
