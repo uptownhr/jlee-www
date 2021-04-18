@@ -9,6 +9,7 @@ export function htmlHead({ title, description }) {
       },
       {
         property: 'description',
+        name: 'description',
         content: description,
         hid: 'description',
       },
