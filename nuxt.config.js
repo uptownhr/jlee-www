@@ -48,7 +48,8 @@ export default {
         symbolSpacing: false,
       },
     ],
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    'nuxt-lazy-load'
   ],
 
   pwa: {
