@@ -65,7 +65,27 @@ export default {
       </template>
       <LoginForm @auth="handleAuth"/>
     </Hero>
-    <CurrentWork/>
+    <SectionText
+        title="Current Work"
+        heading="Bambee - New Product Development"
+        description="Working within a newly formed team to tackle Payroll. My primary role
+          is to provide architectural support for interfacing with the Core
+          platform. Payroll is our first new product that is running as an
+          independent service and will be paving the patterns towards
+          microservice architecture."
+    />
+    <hr class="mx-auto w-16" />
+    <SectionText
+        title="Mentorship"
+        heading="VueJS Mentorship"
+        description="I'm looking to work with another engineer to develop a mastery with VueJS. I can share my past 4+ years of experience and looking for a partner to tackle challenges together."
+    >
+      <nuxt-link
+          to="mentorship"
+          class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out mt-4 block"
+      >Vue Mentorship Details</nuxt-link>
+    </SectionText>
+
     <PageCTABreak>
       <template slot="heading-text">
         Want to talk?
@@ -74,5 +94,7 @@ export default {
       </template>
       <LoginForm slot="cta" :inline-btn="true" @auth="handleAuth"/>
     </PageCTABreak>
+
+
   </div>
 </template>
