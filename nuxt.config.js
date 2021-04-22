@@ -48,6 +48,7 @@ export default {
         symbolSpacing: false,
       },
     ],
+    '@nuxtjs/sitemap'
   ],
 
   pwa: {
@@ -59,6 +60,10 @@ export default {
       lang: 'en',
       short_name: 'Get Paid',
     },
+  },
+
+  sitemap: {
+    hostname: 'https://www.jlee.biz'
   },
 
   plugins: [
