@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 export default {
+  modern: 'client',
   target: 'static',
   srcDir: 'src/',
   rootDir: './',
