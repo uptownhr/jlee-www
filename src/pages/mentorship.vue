@@ -3,7 +3,7 @@ import Hero from '@/components/Hero/Hero'
 import { htmlHead } from '@/lib/helpers'
 
 const head = htmlHead({
-  title: 'VueJS Mentorship',
+  title: 'Frontend Development Mentorship with a focus on Vue',
   description: `I’m a software engineer that loves using VueJS. I’ve been using Vue for 4 years and have not looked back. Let me guide and fast track you to using Vue today.`,
 })
 
