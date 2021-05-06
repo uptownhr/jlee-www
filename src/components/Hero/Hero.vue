@@ -1,56 +1,47 @@
 <template>
-  <div class="relative bg-white overflow-hidden">
-    <div class="max-w-screen-xl mx-auto">
-      <div
-        class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
-      >
-        <svg
-          class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-          fill="currentColor"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-        >
-          <polygon points="50,0 100,0 50,100 0,100" />
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="relative bg-gray-50 overflow-hidden">
+    <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full" aria-hidden="true">
+      <div class="relative h-full max-w-7xl mx-auto">
+        <svg class="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
+          <defs>
+            <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
         </svg>
-
-        <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-          <Nav />
-        </div>
-
-        <main
-          class="mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
-        >
-          <div class="sm:text-center lg:text-left">
-            <h1 slot="heading-text"
-                class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-              <slot name="heading-text" />
-            </h1>
-
-
-            <p
-                slot="sub-text"
-                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
-            >
-              <slot name="sub-text" />
-            </p>
-            <div
-                class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
-            >
-              <slot />
-            </div>
-          </div>
-        </main>
+        <svg class="absolute left-full transform -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
+          <defs>
+            <pattern id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)" />
+        </svg>
       </div>
     </div>
-    <hr class="md:hidden" />
-    <div
-      class="hidden md:block md:show lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
-    >
-      <img
-        class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-        src="/img/james-self-backside.jpeg"
-        alt="James coding from the back"
-      />
+
+    <div class="relative pt-6 pb-16 sm:pb-24">
+      <div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <Nav />
+        </div>
+      </div>
+
+      <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
+        <div class="text-center">
+          <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            <slot name="heading-text" />
+          </h1>
+          <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            <slot name="sub-text" />
+          </p>
+          <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+            <slot />
+          </div>
+        </div>
+      </main>
     </div>
   </div>
 </template>
