@@ -47,9 +47,9 @@
       class="hidden md:block md:show lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
     >
       <img
-        class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-        src="/img/james-self-backside.jpeg"
-        alt="James coding from the back"
+        class="h-56 object-cover sm:h-72 md:h-96 lg:h-full"
+        src="/img/james-lee-800x800.jpg"
+        alt="James Lee Portrait"
       />
     </div>
   </div>
